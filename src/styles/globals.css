@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root,
+  .app {
+    font-family: var(--font-inter), sans-serif;
+    height: 100vh;
+    width: 100%;
+    @apply font-inter text-base;
+  }
+
+  html {
+    --font-inter: "Inter", sans-serif;
+  }
+
+  :root {
+    --color-primary: #001f3f; /* Deep Blue - Primary background */
+    --color-dark: #021526; /* Darker Blue - Headers or accents */
+    --color-secondary: #f2f8ff; /* Light Blue - Secondary background */
+    --color-main: #a7e2fd; /* light Blue - Buttons, links */
+
+    /* Accent Colors */
+    --color-accent-green: #22c55e; /* Success - Actions completed */
+    --color-accent-orange: #f97316; /* Warning - Pending actions */
+    --color-accent-red: #ef4444; /* Error - Issues or alerts */
+
+    /* Text Colors */
+    --color-text-primary: #1f2937; /* Dark Gray - Main text */
+    --color-text-secondary: #4b5563; /* Medium Gray - Subtext */
+    --color-text-inverse: #ffffff; /* White - Text on dark backgrounds */
+
+    /* Background Colors */
+    --color-bg-light: #f9fafb; /* Light Gray - General light background */
+    --color-bg-dark: #111827; /* Deep Gray - Modal backgrounds */
+    --color-bg-hover: #e5e7eb; /* Hover - Light gray for button hover effects */
+
+    /* Border Colors */
+    --color-border: #d1d5db; /* Light Gray - Component borders */
+    --color-border-dark: #374151; /* Dark Gray - Borders for dark backgrounds */
+
+    /* Shadows */
+    --color-shadow-light: rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+    --color-shadow-dark: rgba(0, 0, 0, 0.3); /* Stronger shadow for modals */
+
+    /* Additional Utility Colors */
+    --color-highlight: #fde047; /* Yellow - Important highlights */
+    --color-muted: #9ca3af; /* Gray - Muted text or icons */
+    --color-info: #0ea5e9; /* Sky Blue - Information alerts */
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  h1 {
+    @apply text-5xl font-semibold leading-tight;
+  }
+
+  h2 {
+    @apply text-4xl font-bold leading-snug;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold leading-snug;
+  }
+
+  h4 {
+    @apply text-xl font-medium leading-snug;
+  }
+
+  h5 {
+    @apply text-lg font-medium leading-snug;
+  }
+
+  h6 {
+    @apply text-base font-medium leading-snug;
+  }
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Style for the scrollbar */
+::-webkit-scrollbar {
+  width: 0px; /* Width of the vertical scrollbar */
+  height: 0px; /* Height of the horizontal scrollbar */
+}
+
+@layer utilities {
+  .page {
+    @apply lg:p-6 xl:p-4;
+  }
+
+  .padding {
+    @apply px-4 py-5;
+  }
+
+  .center {
+    @apply flex items-center justify-center;
+  }
+
+  .opacityBg {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.05), transparent);
+  }
+}
+
+.cl-internal-1dauvpw,
+.cl-userButtonPopoverFooter {
+  display: none;
+}
+
+.cl-userButtonPopoverCard {
+  background-color: var(--color-secondary);
+}
+
+/*  REACT CALNDER */
+
+/* Header Styling */
+.rbc-toolbar {
+  @apply mb-4 flex items-center justify-between font-inter;
+}
+
+.rbc-toolbar-label {
+  @apply text-xl font-bold text-primary;
+}
+
+/* Weekday Headers */
+.rbc-header {
+  @apply rounded-lg border-b-0 bg-primary pb-4 text-center font-inter font-normal uppercase text-secondary;
+}
+
+/* Days in Month */
+.rbc-month-row {
+  @apply m-2 grid min-h-[140px] grid-cols-7 gap-2 rounded-lg border-0 bg-secondary transition-all hover:shadow;
+}
+
+.rbc-day-bg {
+  @apply rounded-lg border-none;
+}
+
+.rbc-off-range-bg {
+  @apply bg-gray-100 text-gray-400;
+}
+
+.rbc-current {
+  @apply rounded-lg border-2 border-primary bg-opacity-20;
+}
+
+.rbc-event-content {
+  @apply font-medium;
+}
+
+.rbc-event-label {
+  @apply font-lexend text-sm;
+}
+
+/* Today's Date */
+.rbc-today {
+  @apply rounded-lg border-[2px] border-primary bg-primary text-secondary;
+}
+
+/* Month View Days */
+.rbc-month-view {
+  @apply border-none;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  @apply border-none;
+}
+
+/* Selected Range Styling */
+.rbc-selected-cell {
+  @apply rounded-lg bg-primary text-white;
+}
+
+/* Time Slot Styling */
+.rbc-time-view {
+  @apply bg-gray-50;
+}
+
+.rbc-time-content {
+  @apply border-t border-gray-200;
+}
+
+.rbc-time-header {
+  @apply font-lexend font-medium text-primary;
+}
+
+/* Buttons */
+.rbc-button-link {
+  @apply rounded bg-primary px-4 py-1 font-lexend;
+}
+
+/* Agenda View */
+.rbc-agenda-table {
+  @apply table-auto border-collapse;
+}
+
+.rbc-agenda-content {
+  @apply rounded-lg border bg-secondary;
+}
+
+.rbc-agenda-header {
+  @apply bg-gray-100 px-4 py-2 text-left font-semibold text-primary;
+}
+
+.rbc-agenda-event-cell {
+  @apply px-4 py-2 text-sm text-gray-700;
+}
+
+/* GANTT CHART */
+
+.timeline ._3_ygE {
+  @apply rounded-tl-md border border-r-0 border-[#e6e4e4];
+}
+.timeline ._2eZzQ {
+  @apply border-[#e6e4e4];
+}
+.timeline ._2dZTy {
+  @apply fill-white;
+}
+.timeline ._2dZTy:nth-child(even) {
+  @apply fill-[#f5f5f5];
+}
+.timeline ._35nLX {
+  @apply fill-white stroke-[#e6e4e4];
+}
+.timeline ._9w8d5 {
+  @apply fill-[#333];
+}
+.timeline ._34SS0 {
+  @apply bg-pink-100;
+}
+.timeline ._34SS0:nth-of-type(even) {
+  @apply bg-yellow-100;
+}
+.timeline ._RuwuK,
+.timeline ._3rUKi,
+.timeline ._1rLuZ {
+  @apply stroke-[#e6e4e4];
+}
+.timeline ._3ZbQT {
+  @apply border-l-0 border-[#e6e4e4];
+}
+.timeline ._3T42e {
+  @apply bg-blue-100;
+}
+.timeline ._29NTg {
+  @apply text-neutral-700;
+}
